@@ -1,4 +1,4 @@
-# vue-travel-app
+# Carbon Travel
 
 ## Project setup
 ```

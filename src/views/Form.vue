@@ -1,22 +1,22 @@
 <template>
-  <form>
+  <form @submit="onSubmit()">
     <h1>Ange start- och slutdestination samt antal passagerare för att se rekommenderat färdsätt</h1>
     <label for="start">Startdestination: </label>
-    <select id="start" v-model="start">
+    <select id="start" v-model="form.start">
       <option disabled value="">Välj ett alternativ</option>
-      <option>Stockholm</option>
-      <option>Göteborg</option>
-      <option>Malmö</option>
+      <option v-for="startOption in startOptions" :key="startOption">
+        {{ startOption }}
+      </option>
     </select>
     <label for="end">Slutdestination: </label>
-    <select id="end" v-model="end">
+    <select id="end" v-model="form.end">
       <option disabled value="">Välj ett alternativ</option>
-      <option>Oslo</option>
-      <option>Berlin</option>
-      <option>London</option>
+      <option v-for="endOption in endOptions" :key="endOption">
+        {{ endOption }}
+      </option>
     </select>
     <label for="passengers">Passagerare: </label>
-    <input type="number" id="passengers" v-model="passengers" />
+    <input type="number" id="passengers" v-model="form.passengers" />
     <button type="submit">Påbörja beräkning</button>
   </form>
 </template>
@@ -26,9 +26,18 @@ export default {
   name: "Form",
   data() {
     return {
-      start: '',
-      end: '',
-      passengers: 0
+      form: {
+        start: '',
+        end: '',
+        passengers: 0
+      },
+      startOptions: ['Stockholm', 'Göteborg', 'Malmö'],
+      endOptions: ['Oslo', 'Berlin', 'London']
+    }
+  },
+  methods: {
+    onSubmit: function() {
+      console.log(this.form);
     }
   }
 }

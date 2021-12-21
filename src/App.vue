@@ -1,12 +1,12 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <div>Hello world!</div>
 </template>
 
 <script>
-
 export default {
-  name: 'App'
-}
+  name: "App",
+};
 </script>
 
 <style>

@@ -19,7 +19,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #f4f8fd;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,6 +29,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2f413a;
 }
 </style>

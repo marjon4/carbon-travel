@@ -58,7 +58,7 @@ export default {
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   color: #fff;
-  font: normal 400 20px/1 "Josefin Sans", sans-serif;
+  font: normal 400 20px/1 Avenir, Helvetica, Arial, sans-serif;
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: opacity 0.3s;

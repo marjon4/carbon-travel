@@ -16,7 +16,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap");
 
 nav {
   background-color: #fff;
@@ -30,9 +29,7 @@ nav {
 }
 
 .routerlink {
-  font-family: "Mulish", "san-serif";
   color: black;
-  font-weight: bold;
   padding: 10px;
   text-decoration: none;
 }

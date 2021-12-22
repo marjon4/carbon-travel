@@ -5,26 +5,35 @@
       <p>
         What is your carbon footprint? Consumers and business are getting more
         conscious regarding their carbon footprint. Would you like to know your
-        footprint while traveling with work? Continue down
+        footprint while traveling with work? Continue down and fill out the form
       </p>
     </div>
+    <Scroll />
   </div>
 </template>
 
 <script>
+import Scroll from "./Scroll.vue";
+
 export default {
   name: "Banner",
+  components: {
+    Scroll,
+  },
 };
 </script>
 
 <style scoped>
 .banner {
   background-image: url("../assets/banner.jpg");
-  min-height: 430px;
+  min-height: 490px;
+  height: 70vh;
   background-size: contain;
   display: flex;
   justify-content: center;
   margin-bottom: 15%;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -39,10 +48,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 45px 0;
+  padding: 50px 10px;
+  margin-top: 30px;
 }
 
 p {
   padding: 0 70px;
+  text-align: left;
 }
 </style>

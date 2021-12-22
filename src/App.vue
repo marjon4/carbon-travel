@@ -15,6 +15,9 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #f4f8fd;
   margin: 0;

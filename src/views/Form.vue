@@ -1,6 +1,9 @@
 <template>
   <form @submit="onSubmit()">
-    <h1>Ange start- och slutdestination samt antal passagerare för att se rekommenderat färdsätt</h1>
+    <h1>
+      Ange start- och slutdestination samt antal passagerare för att se
+      rekommenderat färdsätt
+    </h1>
     <label for="start">Startdestination: </label>
     <select id="start" v-model="form.start">
       <option disabled value="">Välj ett alternativ</option>
@@ -27,20 +30,20 @@ export default {
   data() {
     return {
       form: {
-        start: '',
-        end: '',
-        passengers: 0
+        start: "",
+        end: "",
+        passengers: 0,
       },
-      startOptions: ['Stockholm', 'Göteborg', 'Malmö'],
-      endOptions: ['Oslo', 'Berlin', 'London']
-    }
+      startOptions: ["Stockholm", "Göteborg", "Malmö"],
+      endOptions: ["Oslo", "Berlin", "London"],
+    };
   },
   methods: {
-    onSubmit: function() {
+    onSubmit: function () {
       console.log(this.form);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -57,7 +60,8 @@ label {
   font-size: 18px;
   margin-bottom: 5px;
 }
-select, input {
+select,
+input {
   border: 1px solid #2c3e50;
   color: #333333;
   border-radius: 5px;

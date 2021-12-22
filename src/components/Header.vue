@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link class="routerlink" active-link="active" to="form"
-      >Form</router-link
+    <router-link class="routerlink" active-link="active" to="/"
+      >Home</router-link
     >
     <router-link class="routerlink" active-link="active" to="result"
       >Result</router-link
@@ -22,7 +22,7 @@ nav {
   background-color: #fff;
   top: 0;
   display: flex;
-  height: 85px;
+  height: 47px;
   left: 0;
   justify-content: flex-start;
   align-items: center;

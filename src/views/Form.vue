@@ -1,6 +1,6 @@
 <template>
   <main>
-    <form @submit="onSubmit()">
+    <form>
       <h1>
         Enter start and end destination and number of passengers to see
         recommended mode of transport
@@ -21,7 +21,7 @@
       </select>
       <label for="passengers">Passengers: </label>
       <input type="number" id="passengers" v-model="form.passengers" />
-      <button type="submit">Calculate</button>
+      <button type="button" @click="onSubmit()">Calculate</button>
     </form>
   </main>
 </template>
@@ -42,7 +42,8 @@ export default {
   },
   methods: {
     onSubmit: function () {
-      console.log(this.form);
+      this.$store.commit('setForm', this.form)
+      this.$router.push({ name: 'Result' })
     },
   },
 };
@@ -70,20 +71,20 @@ label {
 }
 select,
 input {
-  border: 1px solid #2f413a;
-  color: #5d6b66;
+  border: 1px solid #09383B;
+  color: #666666;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 5px;
   font-size: 16px;
 }
 select:focus, input:focus, button:focus {
-  box-shadow: 0 0 5px #2f413a;
+  box-shadow: 0 0 5px #09383B;
   outline: none;
 }
 button {
   margin-top: 20px;
-  background-color: #2f413a;
+  background-color: #09383B;
   color: #fff;
   border: none;
   border-radius: 5px;

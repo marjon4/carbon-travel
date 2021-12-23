@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
     <div class="banner__box">
-      <h1>Carbon Travel</h1>
+      <h1 data-test="bannerHeader">Carbon Travel</h1>
       <p>
         What is your carbon footprint? Consumers and businesses are getting more
         conscious regarding their carbon footprint. Would you like to know your

@@ -1,6 +1,7 @@
 <template>
   <main>
-    <div class="result-wrapper">
+    <NoResult v-if="!result.car"/>
+    <div v-else class="result-wrapper">
       <h1>
         We searched different travel options for <span class="form-data">{{ form.passengers }}</span> passengers
         going from <span class="form-data">{{ form.start }}</span> 
@@ -14,13 +15,15 @@
 
 <script>
 import Table from '../components/Table.vue';
+import NoResult from '../components/NoResult';
 
 export default {
   name: 'Result',
   components: {
-    Table
+    Table,
+    NoResult,
   },
-  data() {
+  data (){
     return {
       form: {},
       result: {}

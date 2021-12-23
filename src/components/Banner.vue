@@ -3,7 +3,7 @@
     <div class="banner__box">
       <h1>Carbon Travel</h1>
       <p>
-        What is your carbon footprint? Consumers and business are getting more
+        What is your carbon footprint? Consumers and businesses are getting more
         conscious regarding their carbon footprint. Would you like to know your
         footprint while traveling with work? Continue down and fill out the form
       </p>

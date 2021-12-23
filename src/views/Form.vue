@@ -5,7 +5,7 @@
         Enter start and end destination and number of passengers to see
         recommended mode of transport
       </h1>
-      <p v-if="errors.length" class="form-errors">
+      <p v-if="errors.length" class="form-errors" role="alert">
         <b>Please correct the following error(s):</b>
         <ul>
           <li v-for="(error, index) in errors" :key="'error-' + index">{{ error }}</li>

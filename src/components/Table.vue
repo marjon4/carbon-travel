@@ -6,18 +6,19 @@
     </tr>
     <tr>
       <td>Car</td>
-      <td>1 ton</td>
+      <td>{{ result.car.data.attributes.carbon_mt }} tons</td>
     </tr>
     <tr>
       <td>Airplane</td>
-      <td>2 tons</td>
+      <td>{{ result.flight.data.attributes.carbon_mt }} tons</td>
     </tr>
   </table>
 </template>
 
 <script>
   export default {
-    name: 'Table'
+    name: 'Table',
+    props: ['result']
   }
 </script>
 

@@ -8,7 +8,7 @@
         to <span class="form-data">{{ form.end }}</span> 
         and found this...
       </h1>
-      <Table />
+      <Table :result="result" />
     </div>
   </main>
 </template>

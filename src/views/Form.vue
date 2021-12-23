@@ -52,8 +52,9 @@ export default {
       const res = await fetch('http://localhost:5000/api/v1/calculate', options);
       const data = await res.json();
       this.$store.commit('setResult', data);
-      this.$store.commit('setForm', this.form)
-      this.$router.push({ name: 'Result' })
+      this.$store.commit('setForm', this.form);
+      if(data)
+        this.$router.push({ name: 'Result' })
     },
   },
 };

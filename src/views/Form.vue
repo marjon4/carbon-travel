@@ -5,6 +5,12 @@
         Enter start and end destination and number of passengers to see
         recommended mode of transport
       </h1>
+      <p v-if="errors.length" class="form-errors">
+        <b>Please correct the following error(s):</b>
+        <ul>
+          <li v-for="(error, index) in errors" :key="'error-' + index">{{ error }}</li>
+        </ul>
+      </p>
       <label for="start">Start destination: </label>
       <select id="start" v-model="form.start">
         <option disabled value="">Select an option</option>
@@ -38,13 +44,33 @@ export default {
       },
       startOptions: ["Stockholm", "Göteborg", "Malmö"],
       endOptions: ["Oslo", "Berlin", "London"],
+      errors: []
     };
   },
   methods: {
     onSubmit: function () {
-      this.$store.commit('setForm', this.form)
-      this.$router.push({ name: 'Result' })
+      this.checkForm();
+      if (!this.errors.length) {
+        this.$store.commit('setForm', this.form)
+        this.$router.push({ name: 'Result' })
+      }
     },
+    checkForm: function () {
+      if (this.form.start != '' && this.form.end != '' && this.form.passengers > 0) {
+        return true;
+      }
+
+      this.errors = [];
+      if (this.form.start === '') {
+        this.errors.push('Start destination required.');
+      }
+      if (this.form.end === '') {
+        this.errors.push('End destination required.');
+      }
+      if (this.form.passengers === 0) {
+        this.errors.push('Number of passengers required.');
+      }
+    }
   },
 };
 </script>
@@ -63,6 +89,9 @@ form {
   align-items: stretch;
   text-align: left;
   max-width: 620px;
+}
+.form-errors {
+  color: #3b0c09;
 }
 label {
   font-weight: 600;

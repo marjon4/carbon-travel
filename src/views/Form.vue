@@ -32,9 +32,9 @@ export default {
   data() {
     return {
       form: {
-        start: "",
-        end: "",
-        passengers: 0,
+        start: this.$store.state.form.start,
+        end: this.$store.state.form.end,
+        passengers: this.$store.state.form.passengers,
       },
       startOptions: ["Stockholm", "Göteborg", "Malmö"],
       endOptions: ["Oslo", "Berlin", "London"],

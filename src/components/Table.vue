@@ -26,6 +26,10 @@ td, th, table {
   border: 1px solid #09383B;
   border-collapse: collapse;
   padding: 5px;
+}
+table {
   font-size: 18px;
+  background-color: #fff;
+  margin-top: 10px;
 }
 </style>

@@ -19,7 +19,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #fff;
+  background-color: #fafafa;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

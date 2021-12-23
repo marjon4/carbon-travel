@@ -2,9 +2,9 @@
   <main>
     <div class="result-wrapper">
       <h1>
-        We searched different travel options for <span class="form-data">{{$store.state.form.passengers}}</span> passengers
-        going from <span class="form-data">{{$store.state.form.start}}</span> 
-        to <span class="form-data">{{$store.state.form.end}}</span> 
+        We searched different travel options for <span class="form-data">{{ form.passengers }}</span> passengers
+        going from <span class="form-data">{{ form.start }}</span> 
+        to <span class="form-data">{{ form.end }}</span> 
         and found this...
       </h1>
       <Table />
@@ -20,8 +20,14 @@ export default {
   components: {
     Table
   },
-  mounted() {
-    console.log(this.$store.state.form);
+  data() {
+    return {
+      form: {
+        start: this.$store.state.form.start,
+        end: this.$store.state.form.end,
+        passengers: this.$store.state.form.passengers,
+      }
+    }
   }
 }
 </script>
@@ -43,6 +49,6 @@ main {
 }
 .form-data {
   font-style: italic;
-  color: #3b0c09;
+  text-decoration: underline;
 }
 </style>

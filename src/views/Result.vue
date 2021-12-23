@@ -28,6 +28,15 @@ export default {
         passengers: this.$store.state.form.passengers,
       }
     }
+  data (){
+    return {
+      result: {},
+    }
+  },
+    console.log(this.$store.state.form);
+  mounted() {
+    if(this.$store.state.result)
+      this.result = this.$store.state.result;
   }
 }
 </script>

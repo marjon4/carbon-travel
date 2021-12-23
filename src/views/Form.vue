@@ -1,6 +1,6 @@
 <template>
   <main>
-    <form>
+    <form @submit.prevent="onSubmit">
       <h1>
         Enter start and end destination and number of passengers to see
         recommended mode of transport
@@ -41,7 +41,17 @@ export default {
     };
   },
   methods: {
-    onSubmit: function () {
+    onSubmit: async function () {
+      const options = {
+        method: 'POST',
+        headers: {
+          "content-type":"application/json"
+        },
+        body: JSON.stringify({ postdata: 'data'})
+      };
+      const res = await fetch('http://localhost:5000/api/v1/calculate', options);
+      const data = await res.json();
+      this.$store.commit('setResult', data);
       this.$store.commit('setForm', this.form)
       this.$router.push({ name: 'Result' })
     },

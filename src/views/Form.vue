@@ -33,7 +33,9 @@
 </template>
 
 <script>
+  import http from '../http-common.js';
 export default {
+
   name: "Form",
   data() {
     return {
@@ -47,19 +49,16 @@ export default {
     onSubmit: async function () {
       this.checkForm();
         if (!this.errors.length) {
-        const options = {
-          method: 'POST',
-          headers: {
-            "content-type":"application/json"
-          },
-          body: JSON.stringify({ postdata: 'data'})
-        };
-        const res = await fetch('http://localhost:5000/api/v1/calculate', options);
-        const data = await res.json();
-        this.$store.commit('setResult', data);
-        this.$store.commit('setForm', this.form);
-        if(data)
+        const res = await http.post("/calculate", this.form)
+          .then(({ data }) => {
+            return data
+          })
+          .catch(error => console.log(error));
+        if(res){
+          this.$store.commit('setResult', res);
+          this.$store.commit('setForm', this.form);
           this.$router.push({ name: 'Result' })
+        }
       }
     },
     checkForm: function () {

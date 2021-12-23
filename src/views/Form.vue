@@ -1,6 +1,6 @@
 <template>
   <main>
-    <form>
+    <form @submit.prevent="onSubmit">
       <h1>
         Enter start and end destination and number of passengers to see
         recommended mode of transport
@@ -37,30 +37,36 @@ export default {
   name: "Form",
   data() {
     return {
-      form: {
-        start: this.$store.state.form.start,
-        end: this.$store.state.form.end,
-        passengers: this.$store.state.form.passengers,
-      },
+      form: {},
       startOptions: ["Stockholm", "Göteborg", "Malmö"],
       endOptions: ["Oslo", "Berlin", "London"],
       errors: []
     };
   },
   methods: {
-    onSubmit: function () {
+    onSubmit: async function () {
       this.checkForm();
-      if (!this.errors.length) {
-        this.$store.commit('setForm', this.form)
-        this.$router.push({ name: 'Result' })
+        if (!this.errors.length) {
+        const options = {
+          method: 'POST',
+          headers: {
+            "content-type":"application/json"
+          },
+          body: JSON.stringify({ postdata: 'data'})
+        };
+        const res = await fetch('http://localhost:5000/api/v1/calculate', options);
+        const data = await res.json();
+        this.$store.commit('setResult', data);
+        this.$store.commit('setForm', this.form);
+        if(data)
+          this.$router.push({ name: 'Result' })
       }
     },
     checkForm: function () {
+      this.errors = [];
       if (this.form.start != '' && this.form.end != '' && this.form.passengers > 0) {
         return true;
       }
-
-      this.errors = [];
       if (this.form.start === '') {
         this.errors.push('Start destination required.');
       }
@@ -72,6 +78,10 @@ export default {
       }
     }
   },
+  mounted() {
+    if(this.$store.state.form)
+      this.form = this.$store.state.form;
+  }
 };
 </script>
 

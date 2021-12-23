@@ -8,14 +8,18 @@ const store = createStore({
         start: '',
         end: '',
         passengers: 0
-      }
+      },
+      result: {}
     }
   },
   mutations: {
     setForm (state, value) {
       state.form = value;
-    }
-  }
+    },
+    setResult(state, value){
+      state.result = value;
+    },
+  },
 })
 
 export default store;

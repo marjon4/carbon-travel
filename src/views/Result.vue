@@ -22,12 +22,15 @@ export default {
   },
   data() {
     return {
-      form: {
-        start: this.$store.state.form.start,
-        end: this.$store.state.form.end,
-        passengers: this.$store.state.form.passengers,
-      }
+      form: {},
+      result: {}
     }
+  },
+  mounted() {
+    if(this.$store.state.result)
+      this.result = this.$store.state.result;
+    if(this.$store.state.form)
+      this.form = this.$store.state.form;
   }
 }
 </script>

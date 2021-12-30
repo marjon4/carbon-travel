@@ -9,19 +9,25 @@
         and found this...
       </h1>
       <Table :result="result" />
+      <BarChart :result="result" />
+      <Recommendation :result="result" />
     </div>
   </main>
 </template>
 
 <script>
 import Table from '../components/Table.vue';
-import NoResult from '../components/NoResult';
+import NoResult from '../components/NoResult.vue';
+import BarChart from '../components/BarChart.vue';
+import Recommendation from '../components/Recommendation.vue';
 
 export default {
   name: 'Result',
   components: {
-    Table,
     NoResult,
+    Table,
+    BarChart,
+    Recommendation
   },
   data (){
     return {

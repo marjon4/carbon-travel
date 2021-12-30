@@ -2,7 +2,7 @@
   <table>
     <tr>
       <th>Mode of travel</th>
-      <th>Carbon dioxide emissions</th>
+      <th>Total carbon dioxide emissions</th>
     </tr>
     <tr>
       <td>Car</td>

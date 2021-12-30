@@ -33,9 +33,9 @@
 </template>
 
 <script>
-  import http from '../http-common.js';
-export default {
+import http from '../http-common.js';
 
+export default {
   name: "Form",
   data() {
     return {

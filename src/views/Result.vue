@@ -4,8 +4,8 @@
     <div v-else class="result-wrapper">
       <h1>
         We searched different travel options for <span class="form-data">{{ form.passengers }}</span> passengers
-        going from <span class="form-data">{{ form.start }}</span> 
-        to <span class="form-data">{{ form.end }}</span> 
+        going from <span class="form-data">{{ form.start.city }}</span> 
+        to <span class="form-data">{{ form.end.city }}</span> 
         and found this...
       </h1>
       <Table :result="result" />

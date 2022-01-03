@@ -4,8 +4,9 @@
       <h1 data-test="bannerHeader">Carbon Travel</h1>
       <p>
         What is your carbon footprint? Consumers and businesses are getting more
-        conscious regarding their carbon footprint. Would you like to know your
-        footprint while traveling with work? Continue down and fill out the form
+        conscious of their carbon footprint. Transportation is the second largest source of carbon dioxide emissions looking at the average consumption based emissions per year and citizen in Sweden.
+        Therefore, overlooking the way we travel can really affect our total environmental impact.
+        Would you like to know your footprint while traveling with work? Continue down and fill out the form
       </p>
     </div>
     <Scroll />

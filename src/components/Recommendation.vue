@@ -1,8 +1,8 @@
 <template>
   <p>
-    Transportation is the second largest source of carbon dioxide emissions looking at the consumption based emissions per year for an average Swede.
-    Therefore, overlooking the way we travel can really affect our total environmental impact.
-    As seen in the above diagram, the average transportation related CO2-emissions per year and person was 1.7 tons 2018. Far from the goal of 1 ton per person and year in average global emissions (also seen in diagram) by the year of 2050,
+    To add some more relevancy to these numbers, we may compare them with some general stats.
+    As seen in the above diagram, the average transportation related CO2-emissions per year and person was 1.7 tons 2018.
+    Far from the goal of 1 ton per person and year in average global emissions (also seen in diagram) by the year of 2050,
     in order to achieve the <i>Generation Goal</i>, the environmental quality goal <i>Limited Climate Impact</i> and the <i>Paris Agreement goal</i>.
   </p>
   <p>

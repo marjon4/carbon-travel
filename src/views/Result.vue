@@ -1,11 +1,12 @@
 <template>
   <main>
-    <NoResult v-if="!result.car"/>
+    <NoResult v-if="!result.data" />
     <div v-else class="result-wrapper">
       <h1>
-        We searched different travel options for <span class="form-data">{{ form.passengers }}</span> passengers
-        going from <span class="form-data">{{ form.start.city }}</span> 
-        to <span class="form-data">{{ form.end.city }}</span> 
+        We searched different travel options for
+        <span class="form-data">{{ form.passengers }}</span> passengers going
+        from <span class="form-data">{{ form.start.city }}</span> to
+        <span class="form-data">{{ form.end.city }}</span>
         and found this...
       </h1>
       <Table :result="result" />
@@ -16,32 +17,30 @@
 </template>
 
 <script>
-import Table from '../components/Table.vue';
-import NoResult from '../components/NoResult.vue';
-import BarChart from '../components/BarChart.vue';
-import Recommendation from '../components/Recommendation.vue';
+import Table from "../components/Table.vue";
+import NoResult from "../components/NoResult.vue";
+import BarChart from "../components/BarChart.vue";
+import Recommendation from "../components/Recommendation.vue";
 
 export default {
-  name: 'Result',
+  name: "Result",
   components: {
     NoResult,
     Table,
     BarChart,
-    Recommendation
+    Recommendation,
   },
-  data (){
+  data() {
     return {
       form: {},
-      result: {}
-    }
+      result: {},
+    };
   },
   mounted() {
-    if(this.$store.state.result)
-      this.result = this.$store.state.result;
-    if(this.$store.state.form)
-      this.form = this.$store.state.form;
-  }
-}
+    if (this.$store.state.result) this.result = this.$store.state.result;
+    if (this.$store.state.form) this.form = this.$store.state.form;
+  },
+};
 </script>
 
 <style scoped>

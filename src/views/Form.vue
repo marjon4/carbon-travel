@@ -40,7 +40,7 @@ export default {
       this.checkForm();
         if (!this.errors.length) {
         const res = await http.post("/calculate", this.form)
-          .then(({ data }) => {
+          .then((data) => {
             return data
           })
           .catch(error => console.log(error));

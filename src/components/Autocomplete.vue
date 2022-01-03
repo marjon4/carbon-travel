@@ -5,20 +5,23 @@
       :id="id"
       type="text"
       v-model="input"
+      autocomplete="off"
       @input="debouncedHandler"
       placeholder="Start typing to search cities"
     />
     <ul v-if="airports.length">
       <li v-for="(airport, i) in airports" :key="airport.IATA + '_' + i">
-        <button type="button" @click="selectAirport(airport)">{{ airport.name }}</button>
+        <button type="button" @click="selectAirport(airport)">
+          {{ airport.name }}
+        </button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import http from '../http-common.js';
-import debounce from 'lodash.debounce';
+import http from "../http-common.js";
+import debounce from "lodash.debounce";
 
 export default {
   name: "Autocomplete",
@@ -26,22 +29,23 @@ export default {
   emits: ["clicked"],
   data() {
     return {
-      input: '',
+      input: "",
       airport: {},
-      airports: []
-    }
+      airports: [],
+    };
   },
   methods: {
-    fetchAirports: async function(event) {
+    fetchAirports: async function (event) {
       let input = event.target.value;
-      if(input.length >= 3 ){
-        const res = await http.post("/iata", {'startTwo': this.input})
-         .then(({ data }) => {
-            return data
+      if (input.length >= 3) {
+        const res = await http
+          .post("/iata", { startTwo: this.input })
+          .then(({ data }) => {
+            return data;
           })
-          .catch(error => console.log(error));
-        if(res){
-          console.log('res: ', res);
+          .catch((error) => console.log(error));
+        if (res) {
+          console.log("res: ", res);
           this.airports = res;
         }
       }
@@ -50,16 +54,19 @@ export default {
       this.airport = airport;
       this.airports = [];
       this.input = airport.name;
-      this.$emit('clicked', this.airport);
-    }
+      this.$emit("clicked", this.airport);
+    },
   },
   created() {
-    this.debouncedHandler = debounce(event => this.fetchAirports(event), 3000)
+    this.debouncedHandler = debounce(
+      (event) => this.fetchAirports(event),
+      3000
+    );
   },
   beforeUnmount() {
     this.debouncedHandler.cancel();
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -78,7 +85,7 @@ ul {
   margin: 0;
   top: 29px;
   background: #fff;
-  border: 1px solid #09383B;
+  border: 1px solid #09383b;
   border-radius: 5px;
 }
 li {

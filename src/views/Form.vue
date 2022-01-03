@@ -70,7 +70,7 @@ export default {
       this.form.start = newStart;
     },
     setEnd(newEnd) {
-      this.form.start = newEnd;
+      this.form.end = newEnd;
     }
   },
   mounted() {

@@ -18,6 +18,16 @@
           {{ startOption }}
         </option>
       </select>
+      <label for="startTwo">Start destination: </label>
+      <input id="startTwo" 
+        name="startTwo"
+        type="text"
+        v-model="startTwo"
+        @input="debouncedHandler"
+      />
+      <div id="result" v-if="airports.length > 0">
+        <div v-for="(airport, i) in airports" :key="airport.IATA + '_' + i">{{ airport.name }}</div>
+      </div>
       <label for="end">End destination: </label>
       <select id="end" v-model="form.end">
         <option disabled value="">Select an option</option>
@@ -34,6 +44,7 @@
 
 <script>
 import http from '../http-common.js';
+import debounce from 'lodash.debounce';
 
 export default {
   name: "Form",
@@ -42,7 +53,9 @@ export default {
       form: {},
       startOptions: ["Stockholm", "Göteborg", "Malmö"],
       endOptions: ["Oslo", "Berlin", "London"],
-      errors: []
+      errors: [],
+      airports: [],
+      startTwo: ''
     };
   },
   methods: {
@@ -75,11 +88,32 @@ export default {
       if (this.form.passengers === 0) {
         this.errors.push('Number of passengers required.');
       }
-    }
+    },
+    fetchAirports: async function(event) {
+      let input = event.target.value;
+      if(input.length >= 3 ){
+        const res = await http.post("/iata", {'startTwo': this.startTwo})
+         .then(({ data }) => {
+            return data
+          })
+          .catch(error => console.log(error));
+        if(res){
+          console.log('res: ', res);
+          this.airports = res;
+        }
+      }
+    },
   },
   mounted() {
     if(this.$store.state.form)
       this.form = this.$store.state.form;
+      
+  },
+  created() {
+    this.debouncedHandler = debounce(event => this.fetchAirports(event), 3000)
+  },
+  beforeUnmount() {
+    this.debouncedHandler.cancel();
   }
 };
 </script>
@@ -131,5 +165,11 @@ button {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-weight: 600;
   cursor: pointer;
+}
+#result {
+  width: 100%;
+  background: #fff;
+  height: auto;
+  border: 1px solid #000;
 }
 </style>

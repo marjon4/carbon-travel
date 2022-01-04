@@ -1,7 +1,7 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Banner from '../../src/components/Banner.vue';
 
-describe('Home.vue', () => {
+describe('Banner.vue', () => {
   it('renders Carbon travel', () => {
     const msg = 'Carbon Travel'
     const wrapper = mount(Banner);

@@ -66,8 +66,8 @@
   </p>
   <h3>Referenslista</h3>
   <ol>
-    <li>Sveriges Miljömål (2018) <i>Konsumtionsbaserade utsläpp av växthusgaser per område</i> sverigesmiljomal.se/miljomalen/generationsmalet/konsumtionsbaserade-vaxthusgasutslapp-per-omrade/ [2021-12-30]</li>
-    <li>Naturvårdsverket (2019) <i>Konsumtionsbaserade växthusgasutsläpp per person och år</i> https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/ [2021-12-30]</li>
+    <li>Sveriges Miljömål (2018) <i>Konsumtionsbaserade utsläpp av växthusgaser per område.</i> sverigesmiljomal.se/miljomalen/generationsmalet/konsumtionsbaserade-vaxthusgasutslapp-per-omrade/ [2021-12-30]</li>
+    <li>Naturvårdsverket (2019) <i>Konsumtionsbaserade växthusgasutsläpp per person och år.</i> https://www.naturvardsverket.se/data-och-statistik/konsumtion/vaxthusgaser-konsumtionsbaserade-utslapp-per-person/ [2021-12-30]</li>
   </ol>
 </template>
 <script>

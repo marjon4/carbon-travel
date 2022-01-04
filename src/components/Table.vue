@@ -6,13 +6,13 @@
     </tr>
     <tr>
       <td>Car</td>
-      <td>
+      <td data-test="car-data">
         {{ result.data.calculatedCarCarbon.data.attributes.carbon_mt }} tons
       </td>
     </tr>
     <tr>
       <td>Airplane</td>
-      <td>
+      <td data-test="flight-data">
         {{ result.data.calculatedFlightCarbon.data.attributes.carbon_mt }} tons
       </td>
     </tr>
